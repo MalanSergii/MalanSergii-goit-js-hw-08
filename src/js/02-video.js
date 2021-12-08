@@ -3,10 +3,9 @@ const throttle = require('lodash.throttle');
 const iframe = document.querySelector('iframe');
 const  player  =  new Vimeo.Player ( iframe ) ;
 
-const lastSavedTime = localStorage.getItem("videoplayer-current-time");
-console.log(lastSavedTime);
+const savedTimeFromPl = localStorage.getItem("videoplayer-current-time");
 
-player.setCurrentTime(lastSavedTime).then(function(seconds) {
+player.setCurrentTime(savedTimeFromPl).then(function(seconds) {
     // seconds = the actual time that the player seeked to
 }).catch(function(error) {
     switch (error.name) {
